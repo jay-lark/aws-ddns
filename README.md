@@ -5,7 +5,7 @@ Personal DDNS system using AWS Route 53.
 - Python 3
 - Boto 3
 
-##Usage
+## Usage
 
 ### ip.php
 Place this PHP file somewhere on the internet that the system with a dynamic IP can reach.
