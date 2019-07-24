@@ -1,15 +1,15 @@
-
 #!/usr/bin/env python3
 import urllib.request
 import boto3
 
-zone_id = "xxxxxxx"
-zone_record = "xxxxxxx."
+zone_id = "XXXXXXX"
+zone_record = "XXXXX"
+public_url = "XXXXXX"
 
 
-external_ip = urllib.request.urlopen('xxxxxxxxxx').read().decode('utf8')
+external_ip = urllib.request.urlopen(public_url).read().decode('utf8')
 
-print(external_ip)
+#print(external_ip)
 
 client = boto3.client('route53')
 
@@ -20,11 +20,11 @@ for i in r['ResourceRecordSets']:
         current_r53 = (records['Value'])
 
 
-print(current_r53)
+#print(current_r53)
 
 if external_ip != current_r53:
     response = client.change_resource_record_sets(
-    HostedZoneId='Z2TMLDL02Q0S1F',
+    HostedZoneId=zone_id,
     ChangeBatch={
         "Comment": "Automatic DNS update",
         "Changes": [
